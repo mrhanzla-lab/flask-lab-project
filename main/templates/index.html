@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Lab Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Flask Lab Project</h1>
+        <p>Welcome to the Flask Lab collaborative project!</p>
+        
+        <div class="endpoints">
+            <h2>Available Endpoints:</h2>
+            <ul>
+                <li><strong>GET /</strong> - This homepage</li>
+                <li><strong>GET /health</strong> - Health check endpoint</li>
+                <li><strong>POST /data</strong> - Echo JSON data back</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>Test POST Endpoint:</h2>
+            <button onclick="testEndpoint()">Send Test Data</button>
+            <pre id="response"></pre>
+        </div>
+    </div>
+
+    <script>
+        async function testEndpoint() {
+            try {
+                const response = await fetch('/data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name: 'Test User', timestamp: new Date().toISOString() })
+                });
+                const data = await response.json();
+                document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                document.getElementById('response').textContent = 'Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>
