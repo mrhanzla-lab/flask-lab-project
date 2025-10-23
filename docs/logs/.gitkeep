@@ -1,0 +1,4 @@
+# Logs directory
+# Optional: Add build/test logs here for submission
+# - docker_build_*.txt
+# - pytest_*.txt

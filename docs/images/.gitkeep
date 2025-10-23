@@ -1,0 +1,5 @@
+# Screenshots directory
+# Add CI/CD screenshots here:
+# - ci-github-actions-*.png (GitHub Actions workflow run showing passed tests/build)
+# - ci-ghcr-image-*.png (GHCR or Docker Hub showing published image)
+# - app-running-*.png (Running app screenshot from browser or terminal)
