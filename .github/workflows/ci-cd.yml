@@ -40,7 +40,7 @@ jobs:
       - name: Run tests
         run: |
           cd main
-          pytest -q
+          pytest -v --tb=short
 
   build-and-push:
     needs: test
