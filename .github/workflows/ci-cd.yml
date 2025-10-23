@@ -38,9 +38,10 @@ jobs:
           pip install -r main/requirements.txt
 
       - name: Run tests
-        run: |
-          cd main
-          pytest -v --tb=short
+        working-directory: main
+        env:
+          PYTHONPATH: .
+        run: pytest -v --tb=short
 
   build-and-push:
     needs: test
